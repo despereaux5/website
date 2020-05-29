@@ -1,0 +1,45 @@
+<template>
+  <v-card>
+      <v-flex xs12 sm10>
+        <v-tree url="/item/category/list"
+                :isEdit="isEdit"
+                @handleAdd="handleAdd"
+                @handleEdit="handleEdit"
+                @handleDelete="handleDelete"
+                @handleClick="handleClick"
+        />  <!--在上面增加，可实现静态导入，不需要到后端查数据:treeData="treeData"-->
+      </v-flex>
+  </v-card>
+</template>
+
+<script>
+  // import {treeData}from "../../mockDB"
+  export default {
+    name: "category",
+    data() {
+      return {
+        isEdit:true,
+        // treeData:treeData
+      }
+    },
+    methods: {
+      handleAdd(node) {
+        console.log("add .... ");
+        console.log(node);
+      },
+      handleEdit(id, name) {
+        console.log("edit... id: " + id + ", name: " + name)
+      },
+      handleDelete(id) {
+        console.log("delete ... " + id)
+      },
+      handleClick(node) {
+        console.log(node)
+      }
+    }
+  };
+</script>
+
+<style scoped>
+
+</style>
